@@ -1,17 +1,27 @@
 <script setup lang="ts">
-const { data, status } = useFetch('/api/hello?name=bright')
+const user = useCurrentUser();
+const name = user?.value?.displayName;
+
+const { data, status } = useFetch(`/api/hello?name=${name || "Anonymous"} `);
+
+definePageMeta({
+  layout: "default",
+});
+
+onMounted(() => {
+  console.log("mounted");
+  const firebase = useRuntimeConfig().public.firebaseConfig;
+  const recaptcha = useRuntimeConfig().public.recaptchaSiteKey;
+  console.log(firebase);
+  console.log(recaptcha);
+  console.log(user);
+});
 </script>
 
 <template>
-    <div>
-        <h1 class="text-2xl ">home page</h1>
-        <h2>{{ status }}</h2>
-        <h2>{{ data?.greeting }}</h2>
-
-        
-    </div>
+ <div>
+  <Hero/>
+ </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

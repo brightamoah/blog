@@ -1,9 +1,20 @@
 <template>
-  <div>
-    <UApp>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </UApp>
-  </div>
+  <UApp>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>
+
+
+<style scoped>
+/* add page tarnsition  */
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+</style>

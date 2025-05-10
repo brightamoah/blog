@@ -1,2 +1,47 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme static{
+    --ui-primary: #007acc;
+    --font-handlee: 'Handlee', cursive;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-courgette: 'Courgette', cursive;
+    --font-roboto-mono: 'Roboto Mono', monospace;
+    --font-curve: 'Curve', cursive;
+    --font-cedarville-cursive: 'Cedarville Cursive', cursive;
+    --font-raleway: 'Raleway', sans-serif;
+    --font-cursive: 'Cursive', cursive;
+}
+
+.courgette-regular {
+  font-family: var(--font-courgette);
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Scrollbar */
+* {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: 6px;
+  scrollbar-color: transparent;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(128, 128, 128, 0.5);
+  border-radius: 3px;
+}
