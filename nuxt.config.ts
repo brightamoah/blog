@@ -12,7 +12,7 @@ export default defineNuxtConfig({
    dev: false,
    ssr: true,
    nitro: {
-      preset: 'vercel',
+      preset: "vercel",
    },
 
    runtimeConfig: {
@@ -81,24 +81,7 @@ export default defineNuxtConfig({
          key: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY,
       },
       admin: {
-         serviceAccount:
-            process.env.NODE_ENV === "production"
-               ? (() => {
-                    try {
-                       const base64Creds =
-                          process.env.GOOGLE_APPLICATION_CREDENTIALS_PROD || "";
-                       return JSON.parse(
-                          Buffer.from(base64Creds, "base64").toString("utf-8")
-                       );
-                    } catch (error) {
-                       console.error(
-                          "Error parsing Firebase credentials:",
-                          error
-                       );
-                       return null;
-                    }
-                 })()
-               : process.env.GOOGLE_APPLICATION_CREDENTIALS,
+         serviceAccount: process.env.GOOGLE_APPLICATION_CREDENTIALS,
       },
    },
 
