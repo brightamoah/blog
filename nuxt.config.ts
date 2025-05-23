@@ -8,7 +8,12 @@ export default defineNuxtConfig({
       compatibilityVersion: 4,
    },
 
-   // ssr: false,
+   //set environment to production
+   dev: false,
+   ssr: true,
+   nitro: {
+      preset: 'vercel',
+   },
 
    runtimeConfig: {
       public: {
