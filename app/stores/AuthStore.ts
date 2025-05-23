@@ -75,6 +75,9 @@ export const useAuthStore = defineStore("AuthStore", () => {
     registerFormData.value.email = "";
     registerFormData.value.password = "";
     registerFormData.value.confirmPassword = "";
+    errorMessage.value = "";
+    showPassword.value = false;
+    showConfirmPassword.value = false;
   };
 
   const handleSignup = async () => {
@@ -142,10 +145,13 @@ export const useAuthStore = defineStore("AuthStore", () => {
       resetFormData();
       navigateTo("/blogs");
       isLoggedIn.value = true;
-    } catch (err) {
-      const typedError = err as Error;
-      errorMessage.value = typedError.message;
-      console.error("Login failed:", errorMessage.value);
+    } catch (err: any) {
+      const typedError = err as Error & { code?: string };
+      if (typedError.code) {
+        console.error("Error code:", typedError.code);
+        errorMessage.value = getFirebaseErrorMessage(typedError.code);
+        console.error("Login failed:", errorMessage.value);
+      }
     } finally {
       isLoading.value = false;
     }
@@ -179,6 +185,8 @@ export const useAuthStore = defineStore("AuthStore", () => {
     isSignupFormValid,
     isLoginFormValid,
     user,
+    errorMessage,
+    userId,
     resetFormData,
     handleSignup,
     handleLogin,

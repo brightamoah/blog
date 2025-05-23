@@ -18,6 +18,8 @@
           </p>
         </div>
 
+        <AuthErrorAlert :errorMessage />
+
         <UForm
           :state="loginFormData"
           class="space-y-4 sm:space-y-6"
@@ -136,16 +138,7 @@
             />
           </div>
 
-          <div class="mt-4 flex items-center justify-center sm:mt-6">
-            <UButton
-              variant="solid"
-              label="Sign in with Google"
-              class="flex w-full cursor-pointer justify-center rounded-full border-2 border-primary bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 shadow-md transition-all duration-200 hover:border-4 hover:bg-white sm:w-[85%] sm:py-2.5 sm:text-base md:w-[70%] dark:bg-gray-100"
-              :loading="isLoading"
-              leading-icon="i-logos-google-icon"
-              trailing-icon="i-lucide-arrow-right"
-            />
-          </div>
+          <AuthGoogleButton :isLoading />
         </div>
 
         <p class="mt-4 text-center text-sm sm:mt-6 sm:text-sm">
@@ -163,9 +156,23 @@
 </template>
 
 <script setup lang="ts">
-const authStore = useAuthStore();
-const { loginFormData, isLoading, showPassword, isLoginFormValid } =
-  storeToRefs(authStore);
 
-const { handleLogin } = authStore;
+const authStore = useAuthStore();
+const {
+  loginFormData,
+  isLoading,
+  showPassword,
+  isLoginFormValid,
+  errorMessage,
+} = storeToRefs(authStore);
+
+const { handleLogin, resetFormData } = authStore;
+
+onMounted(() => {
+  console.log(errorMessage.value);
+});
+
+onUnmounted(() => {
+  resetFormData();
+});
 </script>

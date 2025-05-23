@@ -4,8 +4,11 @@
 
 <template>
   <div>
-    <Navbar />
-    <slot></slot>
+    <AppNavbar />
+    <div>
+      <slot />
+    </div>
+    <AppFooter />
   </div>
 </template>
 

@@ -8,12 +8,10 @@
       <div
         class="rounded-lg px-4 py-6 shadow-lg sm:rounded-lg sm:px-8 sm:py-8 md:px-10 dark:bg-gray-800"
       >
-        <!-- <div class="mb-4 sm:mx-auto sm:mb-6 sm:w-full sm:max-w-md">
-          <h2 class="text-center text-xl font-bold sm:text-2xl">
-            Join <span class="text-primary">My-Blog</span> Today!
-          </h2>
-          <p class="text-center text-sm sm:text-base">Create a new account</p>
-        </div> -->
+        <h2 class="-mt-5 text-center text-xl font-bold">
+          Join <span class="text-primary">My-Blog</span> Today!
+        </h2>
+        <AuthErrorAlert :errorMessage class="mt-3" />
 
         <UForm
           :state="registerFormData"
@@ -97,91 +95,95 @@
             </UFormField>
           </div>
 
-          <div>
-            <UFormField
-              name="password"
-              label="Password"
-              required
-              size="xl"
-              class="mt-1 block text-base font-medium"
-            >
-              <UInput
-                id="password"
-                v-model="registerFormData.password"
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <UFormField
                 name="password"
-                color="neutral"
-                highlight
-                size="xl"
-                placeholder="Create a password"
-                leading-icon="i-lucide-lock"
-                :type="showPassword ? 'text' : 'password'"
-                autocomplete="new-password"
+                label="Password"
                 required
-                class="block w-full rounded-full"
-                :ui="{ trailing: 'pe-1 ' }"
+                size="xl"
+                class="mt-1 block text-base font-medium"
               >
-                <template #trailing>
-                  <UButton
-                    color="neutral"
-                    variant="link"
-                    size="xl"
-                    :icon="showPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                    :aria-label="
-                      showPassword ? 'Hide password' : 'Show password'
-                    "
-                    :aria-pressed="showPassword"
-                    aria-controls="password"
-                    @click="showPassword = !showPassword"
-                  />
-                </template>
-              </UInput>
-            </UFormField>
-          </div>
+                <UInput
+                  id="password"
+                  v-model="registerFormData.password"
+                  name="password"
+                  color="neutral"
+                  highlight
+                  size="xl"
+                  placeholder="Enter Password"
+                  leading-icon="i-lucide-lock"
+                  :type="showPassword ? 'text' : 'password'"
+                  autocomplete="new-password"
+                  required
+                  class="block w-full rounded-full"
+                  :ui="{ trailing: 'pe-1 ' }"
+                >
+                  <template #trailing>
+                    <UButton
+                      color="neutral"
+                      variant="link"
+                      size="xl"
+                      :icon="showPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'"
+                      :aria-label="
+                        showPassword ? 'Hide password' : 'Show password'
+                      "
+                      :aria-pressed="showPassword"
+                      aria-controls="password"
+                      @click="showPassword = !showPassword"
+                    />
+                  </template>
+                </UInput>
+              </UFormField>
+            </div>
 
-          <div>
-            <UFormField
-              name="confirmPassword"
-              label="Confirm Password"
-              required
-              size="xl"
-              class="mt-1 block text-base font-medium"
-            >
-              <UInput
-                id="confirmPassword"
-                v-model="registerFormData.confirmPassword"
+            <div>
+              <UFormField
                 name="confirmPassword"
-                color="neutral"
-                highlight
-                size="xl"
-                placeholder="Confirm your password"
-                leading-icon="i-lucide-shield-check"
-                :type="showConfirmPassword ? 'text' : 'password'"
-                autocomplete="new-password"
+                label="Confirm Password"
                 required
-                class="block w-full rounded-full"
-                :ui="{ trailing: 'pe-1 ' }"
+                size="xl"
+                class="mt-1 block text-base font-medium"
               >
-                <template #trailing>
-                  <UButton
-                    color="neutral"
-                    variant="link"
-                    size="xl"
-                    :icon="
-                      showConfirmPassword ? 'i-lucide-eye-off' : 'i-lucide-eye'
-                    "
-                    :aria-label="
-                      showConfirmPassword ? 'Hide password' : 'Show password'
-                    "
-                    :aria-pressed="showConfirmPassword"
-                    aria-controls="confirmPassword"
-                    @click="showConfirmPassword = !showConfirmPassword"
-                  />
-                </template>
-              </UInput>
-            </UFormField>
-            <p v-if="passwordMismatch" class="mt-1 text-xs text-red-600">
-              Passwords do not match
-            </p>
+                <UInput
+                  id="confirmPassword"
+                  v-model="registerFormData.confirmPassword"
+                  name="confirmPassword"
+                  color="neutral"
+                  highlight
+                  size="xl"
+                  placeholder="Confirm your password"
+                  leading-icon="i-lucide-shield-check"
+                  :type="showConfirmPassword ? 'text' : 'password'"
+                  autocomplete="new-password"
+                  required
+                  class="block w-full rounded-full"
+                  :ui="{ trailing: 'pe-1 ' }"
+                >
+                  <template #trailing>
+                    <UButton
+                      color="neutral"
+                      variant="link"
+                      size="xl"
+                      :icon="
+                        showConfirmPassword
+                          ? 'i-lucide-eye-off'
+                          : 'i-lucide-eye'
+                      "
+                      :aria-label="
+                        showConfirmPassword ? 'Hide password' : 'Show password'
+                      "
+                      :aria-pressed="showConfirmPassword"
+                      aria-controls="confirmPassword"
+                      @click="showConfirmPassword = !showConfirmPassword"
+                    />
+                  </template>
+                </UInput>
+              </UFormField>
+              <p v-if="passwordMismatch" class="mt-1 text-xs text-red-600">
+                Passwords do not match
+              </p>
+            </div>
           </div>
 
           <div class="mt-4 flex items-center justify-center sm:mt-6">
@@ -210,15 +212,10 @@
             />
           </div>
 
-          <div class="mt-2 flex items-center justify-center sm:mt-6">
-            <UButton
-              variant="solid"
-              label="Sign up with Google"
-              class="flex w-full cursor-pointer justify-center rounded-full border-2 border-primary bg-white px-4 py-3 text-center text-sm font-semibold text-gray-800 shadow-md transition-all duration-200 hover:border-4 hover:bg-white sm:w-[85%] sm:py-2.5 sm:text-base md:w-[70%] dark:bg-gray-100"
-              leading-icon="i-logos-google-icon"
-              trailing-icon="i-lucide-arrow-right"
-            />
-          </div>
+          <AuthGoogleButton
+            :isLoading="isLoading"
+            label="Sign up with Google"
+          />
         </div>
 
         <p class="mt-4 text-center text-sm sm:mt-6 sm:text-sm">
@@ -245,6 +242,7 @@ const {
   showPassword,
   showConfirmPassword,
   isSignupFormValid,
+  errorMessage,
 } = storeToRefs(authStore);
 
 const { handleSignup } = authStore;

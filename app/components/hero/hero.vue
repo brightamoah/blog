@@ -137,7 +137,7 @@
                 <span class="ml-1 text-gray-600 dark:text-gray-400">4.5/5</span>
               </div>
             </div>
-          </div> 
+          </div>
         </div>
 
         <!-- Illustration with proper animation sequence -->
@@ -147,8 +147,8 @@
           <div class="illustration-container relative mx-auto max-w-lg">
             <!-- Main illustration SVG -->
             <!-- <SvgHero/> -->
-            <img
-              src="@/assets/images/rocket.png"
+            <NuxtImg
+              src="/rocket.png"
               alt="Blog Illustration"
               class="illustration-image h-auto w-full"
             />
@@ -165,43 +165,45 @@
       </div>
 
       <!-- Stats and features section - Using our new dynamic component -->
-      <HeroCards :cards="featureCards"  />
+      <HeroCards :cards="featureCards" :delay="true" />
     </div>
   </section>
 </template>
 
 <script setup>
+// import { HeroCards } from '#components';
 
 // Define your feature cards data dynamically
 const featureCards = ref([
   {
     id: 1,
     title: "User-friendly",
-    description: "Clean and intuitive interface for the best reading experience",
+    description:
+      "Clean and intuitive interface for the best reading experience",
     icon: "i-lucide-layout-dashboard",
-    color: "primary"
+    color: "primary",
   },
   {
     id: 2,
     title: "Rich Editor",
     description: "Powerful tools to create beautiful and engaging content",
     icon: "i-lucide-pen-tool",
-    color: "emerald"
+    color: "emerald",
   },
   {
     id: 3,
     title: "Community",
     description: "Connect with like-minded readers and writers",
     icon: "i-lucide-users",
-    color: "indigo"
+    color: "indigo",
   },
   {
     id: 4,
     title: "Privacy First",
     description: "Your data is secure and your privacy is respected",
     icon: "i-lucide-shield",
-    color: "amber"
-  }
+    color: "amber",
+  },
 ]);
 </script>
 

@@ -13,6 +13,10 @@
     --font-cursive: 'Cursive', cursive;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .courgette-regular {
   font-family: var(--font-courgette);
   font-weight: 400;

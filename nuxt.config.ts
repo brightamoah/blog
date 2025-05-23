@@ -22,6 +22,9 @@ export default defineNuxtConfig({
             measurementId: "",
          },
          recaptchaSiteKey: "",
+         rapidApiKey: "",
+         rapidApiHost: "",
+         rapidApiUrl: "",
       },
    },
 
@@ -37,14 +40,20 @@ export default defineNuxtConfig({
    },
 
    modules: [
-     "@pinia/nuxt",
-     "@vueuse/nuxt",
-     "@nuxt/ui",
-     "nuxt-typed-router",
-     "nuxt-vuefire",
-     "@nuxt/fonts",
-     "@nuxt/image",
+      "@pinia/nuxt",
+      "@vueuse/nuxt",
+      "@nuxt/ui",
+      "nuxt-typed-router",
+      "nuxt-vuefire",
+      "@nuxt/fonts",
+      "@nuxt/image",
+      "@formkit/auto-animate",
+      "@nuxt/content",
    ],
+
+   image: {
+      dir: "assets/images",
+   },
 
    vuefire: {
       config: {
@@ -70,4 +79,6 @@ export default defineNuxtConfig({
          serviceAccount: process.env.GOOGLE_APPLICATION_CREDENTIALS,
       },
    },
+
+   content: {},
 });

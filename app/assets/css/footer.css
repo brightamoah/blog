@@ -1,0 +1,47 @@
+@reference "~/assets/css/main.css";
+
+
+.footer-heading {
+  @apply mb-4 text-base font-semibold text-gray-900 dark:text-white;
+}
+
+.footer-link-list {
+  @apply space-y-2;
+}
+
+.footer-link {
+  @apply inline-block text-sm text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary;
+}
+
+.social-icon-link {
+  @apply flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all hover:bg-primary/10 hover:text-primary dark:bg-gray-800 dark:text-gray-400;
+}
+
+.feature-icon-container {
+  @apply flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10;
+}
+
+/* Animations */
+footer {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.active-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.inactive-link {
+  color: inherit;
+}
