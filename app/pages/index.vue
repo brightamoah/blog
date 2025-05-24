@@ -11,9 +11,9 @@ definePageMeta({
 
 onMounted(() => {
   console.log("mounted");
-  const firebase = useRuntimeConfig().public.firebaseConfig;
+  
   const recaptcha = useRuntimeConfig().public.recaptchaSiteKey;
-  console.log(firebase);
+
   console.log(recaptcha);
   console.log(user);
 

@@ -4,7 +4,7 @@ date: "2025-05-22"
 description: 'meta description of the page'
 tags: [Vue 3, Composition API, Pinia]
 draft: false
-image: https://unsplash.com/photos/a-night-scene-of-city-streets-with-neon-signs-TXVTR2itQyE
+image: "/images/person.jpeg"
 ---
 
 

@@ -17,17 +17,31 @@
 
           <!-- Auth Button -->
           <div>
-            <UButton
-              variant="solid"
-              color="primary"
-              size="xl"
-              class="rounded-full px-5 font-medium transition-transform hover:scale-105 cursor-pointer"
-              @click="
-                isLoggedIn ? logout() : $router.push({ name: 'auth-login' })
-              "
-            >
-              {{ isLoggedIn ? "Logout" : "Login" }}
-            </UButton>
+            <ClientOnly>
+              <UButton
+                variant="solid"
+                color="primary"
+                size="xl"
+                class="cursor-pointer rounded-full px-5 font-medium transition-transform hover:scale-105"
+                @click="
+                  isLoggedIn ? logout() : $router.push({ name: 'auth-login' })
+                "
+              >
+                {{ isLoggedIn ? "Logout" : "Login" }}
+              </UButton>
+
+              <template #fallback>
+                <!-- Placeholder during server rendering -->
+                <UButton
+                  variant="solid"
+                  color="primary"
+                  size="lg"
+                  class="cursor-pointer rounded-full px-5 font-medium transition-transform hover:scale-105"
+                >
+                  Auth
+                </UButton>
+              </template>
+            </ClientOnly>
           </div>
 
           <NavToggleTheme class="transition-transform hover:scale-110" />
@@ -55,10 +69,11 @@
 </template>
 
 <script setup lang="ts">
-import { NavDesktop, NavMobile } from "#components";
 import type { MenuItem } from "~/types/type";
 
 const route = useRoute();
+const isLoggedIn = ref(false);
+const isLoading = ref(false);
 
 const menuItems: MenuItem[] = [
   { name: "Home", route: "/" },
@@ -69,9 +84,6 @@ const menuItems: MenuItem[] = [
 const { logout } = useAuthStore();
 
 const isMobileMenuOpen = ref(false);
-const isLoggedIn = computed(() => {
-  return useCurrentUser().value !== null;
-});
 
 const isActiveRoute = (path: MenuItem["route"]) => {
   // Exact match for home page
@@ -94,6 +106,12 @@ onClickOutside(target, (event: MouseEvent) => {
     isMobileMenuOpen.value = false;
     console.log(event);
   }
+});
+
+onMounted(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 50));
+  isLoggedIn.value = useCurrentUser().value !== null;
+  isLoading.value = false;
 });
 </script>
 

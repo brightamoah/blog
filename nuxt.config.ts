@@ -56,9 +56,9 @@ export default defineNuxtConfig({
       "@nuxt/content",
    ],
 
-   image: {
-      dir: "assets/images",
-   },
+   // image: {
+   //    dir: "assets/images",
+   // },
 
    vuefire: {
       config: {

@@ -4,7 +4,7 @@ date: "2025-05-23"
 description: "meta description of the page"
 tags: [pinia, vue, state management]
 draft: false
-thumbnail: "/pics.jpg"
+thumbnail: "/images/pics.jpg"
 ---
 
 # Pinia

@@ -148,7 +148,7 @@
             <!-- Main illustration SVG -->
             <!-- <SvgHero/> -->
             <NuxtImg
-              src="/rocket.png"
+              src="/images/rocket.png"
               alt="Blog Illustration"
               class="illustration-image h-auto w-full"
             />
