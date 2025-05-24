@@ -5,6 +5,7 @@ description: "meta description of the page"
 tags: [pinia, vue, state management]
 draft: false
 thumbnail: "/images/pics.jpg"
+author: { name: "Bright Amoah", avatar: "/images/person.jpeg", role: "Author" }
 ---
 
 # Pinia

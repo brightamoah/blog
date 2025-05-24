@@ -12,6 +12,7 @@
   "dependencies": {
     "@firebase/app-types": "^0.9.3",
     "@nuxt/fonts": "^0.11.3",
+    "@nuxtjs/seo": "^3.0.3",
     "@tailwindcss/vite": "^4.1.5",
     "firebase": "^11.7.1",
     "firebase-admin": "^13.3.0",

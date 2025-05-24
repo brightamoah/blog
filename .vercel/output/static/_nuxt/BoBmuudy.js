@@ -1,0 +1,1 @@
+import{u as i}from"./CZza44dS.js";import{am as r,B as l,bc as u}from"./BrLmWrYa.js";console.log("Util function running");const d=async t=>{console.log("goToPost function running");const n=i(),{latestPosts:e,fetchedPosts:a}=r(n),c=await a.value,o=[...l(()=>c.slice(1,30)).value,...e.value].find(s=>s.id===t);o&&u(`/blogs/${o.id}`)};export{d as g};

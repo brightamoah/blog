@@ -1,0 +1,1 @@
+import{_ as s,d as t,h as n,e as o}from"./BrLmWrYa.js";const r={},c={class:"h-screen"};function a(_,e){return o(),t("div",c,e[0]||(e[0]=[n("h1",null,"about",-1)]))}const l=s(r,[["render",a]]);export{l as default};

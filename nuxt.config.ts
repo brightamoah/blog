@@ -45,15 +45,16 @@ export default defineNuxtConfig({
    },
 
    modules: [
-      "@pinia/nuxt",
-      "@vueuse/nuxt",
-      "@nuxt/ui",
-      "nuxt-typed-router",
-      "nuxt-vuefire",
-      "@nuxt/fonts",
-      "@nuxt/image",
-      "@formkit/auto-animate",
-      "@nuxt/content",
+     "@pinia/nuxt",
+     "@vueuse/nuxt",
+     "@nuxt/ui",
+     "nuxt-typed-router",
+     "nuxt-vuefire",
+     "@nuxt/fonts",
+     "@nuxt/image",
+     "@formkit/auto-animate",
+     "@nuxtjs/seo",
+     "@nuxt/content",
    ],
 
    // image: {
@@ -85,5 +86,9 @@ export default defineNuxtConfig({
       },
    },
 
-   content: {},
+   content: {
+      preview: {
+         api: "https://api.nuxt.studio",
+      },
+   },
 });

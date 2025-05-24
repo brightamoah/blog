@@ -16,6 +16,16 @@ console.log(page.value);
   <main>
     {{ route.path }}
 
+    <UButton
+      variant="soft"
+      color="error"
+      size="sm"
+      label="Go back"
+      icon="i-lucide-arrow-left"
+      to="/blogs"
+      class="mb-4 justify-center cursor-pointer items-center gap-2"
+    />
+
     <div v-if="page">
       <h1>{{ page.title }}</h1>
       <NuxtImg

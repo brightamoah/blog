@@ -13,7 +13,7 @@
       <!-- Sidebar (scrollable if content overflows) -->
       <aside class="w-full md:w-72 lg:w-80 mt-6 md:mt-0 shrink-0 h-[calc(100vh-100px)] overflow-y-auto">
       <div class="bg-card p-4 shadow min-h-full">
-        <BlogLeftSide />
+        <!-- <BlogLeftSide /> -->
       </div>
       </aside>
     </div>
