@@ -1,1 +1,0 @@
-import{_ as n,d as a,h as e,e as c}from"./BrLmWrYa.js";const o={};function r(s,t){return c(),a("div",null,t[0]||(t[0]=[e("h1",null,"contact",-1),e("p",null,"Contact us at: Email",-1)]))}const u=n(o,[["render",r]]);export{u as default};

@@ -1,1 +1,0 @@
-import{_ as r,d as t,h as o,e as s}from"./BrLmWrYa.js";const n={};function a(c,e){return s(),t("div",null,e[0]||(e[0]=[o("h1",null,"categories",-1)]))}const _=r(n,[["render",a]]);export{_ as default};
