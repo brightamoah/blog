@@ -8,6 +8,19 @@ export default defineNuxtConfig({
       compatibilityVersion: 4,
    },
 
+   modules: [
+      "@pinia/nuxt",
+      "@vueuse/nuxt",
+      "@nuxt/ui",
+      "nuxt-typed-router",
+      "nuxt-vuefire",
+      "@nuxt/fonts",
+      "@nuxt/image",
+      "@formkit/auto-animate",
+      "@nuxtjs/seo",
+      "@nuxt/content",
+   ],
+
    //set environment to production
    dev: false,
    ssr: true,
@@ -43,19 +56,6 @@ export default defineNuxtConfig({
    vite: {
       plugins: [tailwindcss()],
    },
-
-   modules: [
-     "@pinia/nuxt",
-     "@vueuse/nuxt",
-     "@nuxt/ui",
-     "nuxt-typed-router",
-     "nuxt-vuefire",
-     "@nuxt/fonts",
-     "@nuxt/image",
-     "@formkit/auto-animate",
-     "@nuxtjs/seo",
-     "@nuxt/content",
-   ],
 
    // image: {
    //    dir: "assets/images",

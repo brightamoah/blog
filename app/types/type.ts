@@ -94,6 +94,22 @@ export interface Post {
   };
 }
 
+export interface Blog {
+  id: string | number;
+  title: string;
+  path: string;
+  thumbnail: string;
+  description: string;
+  date: string;
+  tags: string[];
+  readTime?: number;
+  author: {
+    name: string;
+    avatar: string;
+    role: string;
+  };
+}
+
 export interface BlogStore {
   categories: string[];
   postForm: PostForm;

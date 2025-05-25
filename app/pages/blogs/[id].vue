@@ -15,7 +15,7 @@ console.log(page.value);
 <template>
   <main>
     {{ route.path }}
-
+    <!-- <ContentRenderer v-if="page" :value="page" /> -->
     <UButton
       variant="soft"
       color="error"
@@ -23,7 +23,7 @@ console.log(page.value);
       label="Go back"
       icon="i-lucide-arrow-left"
       to="/blogs"
-      class="mb-4 justify-center cursor-pointer items-center gap-2"
+      class="mb-4 cursor-pointer items-center justify-center gap-2"
     />
 
     <div v-if="page">
