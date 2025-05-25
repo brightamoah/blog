@@ -1,22 +1,31 @@
 ---
 title: Pinia Essentials
 date: 2025-05-23
-description: meta description of the page
+description:
+   Pinia is a state management library for Vue.js applications. It is designed
+   to be simple, lightweight, and easy to use, making it a great choice for
+   managing application state in Vue.js projects.
 tags:
-  - pinia
-  - vue
-  - state management
+   - pinia
+   - vue
+   - state management
 draft: false
-thumbnail: /images/pics.jpg
+thumbnail: /images/vue-js.webp
 author:
-  name: Bright Amoah
-  avatar: /images/person.jpeg
-  role: Author
+   name: Bright Amoah
+   avatar: /images/person.jpeg
+   role: Author
 ---
 
 -
 
-# Pinia
+::div{.text-3xl  .text-green-400 .font-bold} 
+Pinia 
+::
+
+---
+
+
 
 Pinia is a state management library for Vue.js applications. It is designed to
 be simple, lightweight, and easy to use, making it a great choice for managing

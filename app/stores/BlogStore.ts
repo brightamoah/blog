@@ -1,6 +1,8 @@
-import type { BlogStore, Post, PostForm } from "~/types/type";
+import type { Blog, BlogStore, Post, PostForm } from "~/types/type";
 
 export const useBlogStore = defineStore("BlogStore", () => {
+  const route = useRoute();
+
   // Changed to control modal visibility through the navbar
   const isSearchOpen = ref(false);
   const searchQuery = ref("");
@@ -183,7 +185,7 @@ export const useBlogStore = defineStore("BlogStore", () => {
     const allPosts = [
       ...featuredPosts.value,
       ...latestPosts.value,
-      ...blogs.value,
+      // ...blogs.value,
     ];
 
     searchResults.value = allPosts.filter(
@@ -209,6 +211,63 @@ export const useBlogStore = defineStore("BlogStore", () => {
     clearSearch();
   };
 
+  async function fetchAllBlogs() {
+    const {
+      data: blogs,
+      pending,
+      refresh,
+      error,
+    } = await useAsyncData<Blog[]>(
+      "fetchBlogs",
+      async () => {
+        const response = await queryCollection("blogs")
+          .order("date", "DESC")
+          .all();
+
+        // Transform the response to match the Blog type
+        return response.map((item) => ({
+          id: item.id,
+          title: item.title,
+          path: item.path || `/blogs/${item.id}`,
+          thumbnail: item.thumbnail || "",
+          description: item.description || "",
+          date: item.date || new Date().toISOString(),
+          tags: item.tags || [],
+          readTime: item.readTime,
+          author: {
+            name: item.author?.name || "Anonymous",
+            avatar: item.author?.avatar || "/default-avatar.png",
+            role: item.author?.role || "",
+          },
+        }));
+      },
+      {
+        lazy: true,
+      },
+    );
+
+    return { blogs, pending, refresh, error };
+  }
+
+  const getSpecificBlog = async () => {
+    const { data: blog, pending } = await useAsyncData(
+      route.path,
+      () => queryCollection("blogs").path(route.path).first(),
+      {
+        lazy: true,
+      },
+    );
+
+    if (pending.value) {
+      console.log("Loading specific blog data...");
+    }
+    if (!blog.value) {
+      console.error("Blog not found for path:", route.path);
+      return null;
+    }
+    return ref({ blog: blog.value as Blog, pending });
+  };
+
   const postForm = ref<PostForm>({
     id: 0,
     title: "",
@@ -230,11 +289,14 @@ export const useBlogStore = defineStore("BlogStore", () => {
     latestPosts,
     filteredLatestPosts,
     blogs,
+    // blog,
+    getSpecificBlog,
     searchPosts,
     clearSearch,
     openSearchModal,
     closeSearchModal,
     getBlog,
+    fetchAllBlogs,
     fetchedPosts,
   };
 });

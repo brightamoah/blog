@@ -1,16 +1,23 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@source "../../../content/blogs/**/*.md";
 
-@theme static{
-    --ui-primary: #007acc;
-    --font-handlee: 'Handlee', cursive;
-    --font-roboto: 'Roboto', sans-serif;
-    --font-courgette: 'Courgette', cursive;
-    --font-roboto-mono: 'Roboto Mono', monospace;
-    --font-curve: 'Curve', cursive;
-    --font-cedarville-cursive: 'Cedarville Cursive', cursive;
-    --font-raleway: 'Raleway', sans-serif;
-    --font-cursive: 'Cursive', cursive;
+
+
+@theme static {
+  --ui-primary: #007acc;
+  --font-handlee: "Handlee", cursive;
+  --font-roboto: "Roboto", sans-serif;
+  --font-courgette: "Courgette", cursive;
+  --font-roboto-mono: "Roboto Mono", monospace;
+  --font-curve: "Curve", cursive;
+  --font-cedarville-cursive: "Cedarville Cursive", cursive;
+  --font-raleway: "Raleway", sans-serif;
+  --font-cursive: "Cursive", cursive;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
 }
 
 html {

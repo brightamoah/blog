@@ -14,8 +14,9 @@ defineProps<{
     <div class="mb-4 aspect-video overflow-hidden rounded-lg">
       <NuxtImg
         :src="blog.thumbnail"
-        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 hover:cursor-pointer"
+        class="h-full w-full transition-transform duration-500 group-hover:scale-105 hover:cursor-pointer object-cover"
         :alt="blog.title"
+        @click="viewPostDetail(blog.path)"
       />
     </div>
 
@@ -29,10 +30,11 @@ defineProps<{
     <div class="flex flex-col">
       <h3
         class="mb-3 text-xl font-bold transition-colors group-hover:text-primary hover:cursor-pointer"
+        @click="viewPostDetail(blog.path)"
       >
         {{ blog.title }}
       </h3>
-      <p class="mb-4 line-clamp-2 flex-grow text-muted">
+      <p class="mb-4 line-clamp-2 flex-grow text-muted h-12 overflow-hidden">
         {{ blog.description }}
       </p>
     </div>

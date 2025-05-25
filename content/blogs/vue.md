@@ -4,7 +4,7 @@ date: "2025-05-22"
 description: "meta description of the page"
 tags: [Vue 3, Composition API, Pinia]
 draft: false
-thumbnail: "/images/rocket.png"
+thumbnail: "/images/person.jpeg"
 author: { name: "Bright Amoah", avatar: "/images/person.jpeg", role: "Developer" }
 ---
 
